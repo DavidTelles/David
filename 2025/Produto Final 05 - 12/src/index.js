@@ -31,6 +31,7 @@ function main() {
         2 - Ver veiculos alugados
         3 - Adicionar cash
         4 - Retirar cash 
+
         0 - Sair
         `)); 
         
@@ -147,7 +148,7 @@ function rentScoo() {
 
 function vehicle() {
     console.log(list)
-    let remove = Number(prompt('Você deseja remover algum veiculo? s/n: '));
+    let remove = prompt('Você deseja remover algum veiculo? s/n: ');
     if (remove.toLowerCase() == 's') {
         console.clear();
         console.log(list);
