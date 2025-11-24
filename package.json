@@ -1,0 +1,22 @@
+{
+  "name": "david",
+  "version": "1.0.0",
+  "description": "Meu novo é David e estudo desenvolvimento de sistemas dês de maio de 2024, entre no Senai em 2025 e fiz o curso de desenvolvimento de sistemas integrado ao ensino médio!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidTelles/David.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidTelles/David/issues"
+  },
+  "homepage": "https://github.com/DavidTelles/David#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
