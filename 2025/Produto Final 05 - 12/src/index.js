@@ -8,10 +8,14 @@ var nike = prompt(`Seu Usuário -> `);
 
 while(true) { // Verifica se há ou não carterinha de estudante
     var studant = prompt("Você tem carterinha de estudante? s/n -> ").toLowerCase();
-    if(studant == "s" || studant == "n") {
+    if(studant == "s") {
+        studant = true;
         break;
+    } else if (studant == "n") {
+        studant = false;
+        break
     } else {
-        console.log("Digite 's' ou 'n'");
+        console.log("Resposta inválida! Responda com 's' ou 'n'");
     };
 };
 
@@ -52,65 +56,62 @@ function singUp() { // Criar Conta
             break;
         
     }
-}
+};
 
 function main() { // Menu Principal
-    let first = Number(prompt(`
+    if(studant == true) {
+        let first = Number(prompt(`
+            =====================
+            Olá ${nike}! Seu cash é: ${cash}
+    
+            1 - Alugar veiculo
+            2 - Ver veiculos alugados
+            3 - Adicionar cash
+            4 - Retirar cash
+    
+            0 - Sair
+            `)); 
+            
+            if (first == 1) {
+                rentLitle();
+            } else if(first == 2) {
+                vehicle();
+            } else if (first == 3) {
+                deposit();
+            } else if (first == 4) {
+                toRemove();
+            } else if (first == 0) {
+                i++;
+            } else {
+                console.log("Digite um número entre 0 e 4");
+            };
+    
+    } else if (studant == false) {
+        let first = Number(prompt(`
         =====================
-        Olá ${nike}! Seu cash é: ${cash}
+        Ola ${nike}! Seu cash é: ${cash}
 
-        1 - Alugar veiculo
-        2 - Ver veiculos alugados
-        3 - Adicionar cash
-        4 - Retirar cash
+        1 - Alugar Veículo
+        2 - Ver Veículos Alugados
+        3 - Depositar Dinheiro
+        4 - Retirar Dinheiro
 
         0 - Sair
-        `)); 
+        `))  
         
         if (first == 1) {
-            rent();
+            rent()
         } else if(first == 2) {
             vehicle();
-        } else if (first == 3) {
+        } else if(first == 3) {
             deposit();
-        } else if (first == 4) {
+        } else if(first == 4) {
             toRemove();
         } else if (first == 0) {
             i++;
-        } else {
-            console.log("Digite um número entre 0 e 4");
         };
-
-}
-
-function mainLitle() { // Menu Principal para estudante
-    let first = Number(prompt(`
-        =====================
-        Olá ${nike}! Seu cash é: ${cash}
-
-        1 - Alugar veiculo
-        2 - Ver veiculos alugados
-        3 - Adicionar cash
-        4 - Retirar cash
-
-        0 - Sair
-        `)); 
-        
-        if (first == 1) {
-            rentLitle();
-        } else if(first == 2) {
-            vehicle();
-        } else if (first == 3) {
-            deposit();
-        } else if (first == 4) {
-            toRemove();
-        } else if (first == 0) {
-            i++;
-        } else {
-            console.log("Digite um número entre 0 e 4");
-        };
-
-}
+    }
+};
 
 function rent() { // Menu de Alugar
     let first = Number(prompt(`
@@ -131,7 +132,7 @@ function rent() { // Menu de Alugar
             main();
         };
 
-}
+};
 
 function rentLitle() { // Menu de Alugar para estudante
     let first = Number(prompt(`
@@ -151,7 +152,7 @@ function rentLitle() { // Menu de Alugar para estudante
         } else if (first == 0) {
             mainLitle();
         };
-}
+};
 
 function rentBike() { // Menu de alugar Bicicletas
     console.log(`
@@ -189,7 +190,7 @@ function rentBike() { // Menu de alugar Bicicletas
         console.log("Saldo insuficiente");
         deposit();
     };
-}
+};
 
 function rentBikeLitle() { // Menu de alugar Bicicletas para estudante
     console.log(`
@@ -211,7 +212,7 @@ function rentBikeLitle() { // Menu de alugar Bicicletas para estudante
     } else if(bike == 3) {
         value = 20;
     } else if (bike == 0) {
-        mainLitle();
+        main();
     };
     if (cash >= (value*time)){
         cash = cash - (value*time);
@@ -227,7 +228,7 @@ function rentBikeLitle() { // Menu de alugar Bicicletas para estudante
         console.log("Saldo insuficiente");
         deposit();
     };
-}
+};
 
 function rentScoo() { // Menu de alugar Patinetes
     console.log(`
@@ -257,7 +258,7 @@ function rentScoo() { // Menu de alugar Patinetes
             list.push('Patinete simples');
         } else if(scooter == 2) {
             list.push('Patinete avançado');
-        } else if (scooter = 3) {
+        } else if (scooter == 3) {
             list.push('Patinete profissional');
         };
         console.log(`Seu patinete foi alugado com sucesso. O valor foi... ${(value*time)}`);
@@ -265,7 +266,7 @@ function rentScoo() { // Menu de alugar Patinetes
         console.log("Insufficient cash");
         deposit();
     }
-}
+};
 
 function rentScooLitle() { // Menu de alugar Patinetes para estudante
     console.log(`
@@ -287,7 +288,7 @@ function rentScooLitle() { // Menu de alugar Patinetes para estudante
     } else if(scooter == 3) {
         value = 25;
     } else if (scooter == 0) {
-        mainLitle();
+        main();
     };
     if (cash >= (value*time)){
         cash = cash - (value*time);
@@ -303,7 +304,7 @@ function rentScooLitle() { // Menu de alugar Patinetes para estudante
         console.log("Insufficient cash");
         deposit();
     }
-}
+};
 
 function vehicle() { // Menu de ver veiculos Alugados
     console.log(list)
@@ -317,7 +318,7 @@ function vehicle() { // Menu de ver veiculos Alugados
     } else if (remove.toLowerCase() == 'n') {
         console.log('Ok...');
     };
-}
+};
 
 function deposit() { // Menu para depositar Dinheiro
     console.log('Adicione o valor que deseja adicionar na sua conta.');
@@ -335,15 +336,11 @@ function toRemove() { // Menu para remover Dinheiro
     } else {
         console.log('A retirada não foi possivel; O cash é menor do que o valor que deseja retirar.');
     };
-}
+};
 
 singUp()
 while(i < 1) { // Loop principal
-    if (studant == 's') {
-        mainLitle();
-    } else {
-        main();
-    };
+    main()
 };
 
 console.log(`
