@@ -330,7 +330,7 @@ function toRemove() { // Menu para remover Dinheiro
 }
 
 singUp()
-while(i < 1) {
+while(i < 1) { // Loop principal
     if (idade < 18) {
         mainLitle();
     } else {
@@ -343,4 +343,4 @@ console.log(`
     Obrigado por usar nosso sistema, ${nike}!
     Até a próxima!
     =====================
-`);
+`); // Mensagem de despedida
