@@ -5,7 +5,15 @@ var i = 0;
 var cash = 0;
 var list = [];
 var nike = prompt(`Seu Usuário -> `);
-var idade = Number(prompt(`Sua Idade -> `));
+
+while(true) { // Verifica se há ou não carterinha de estudante
+    var studant = prompt("Você tem carterinha de estudante? s/n -> ").toLowerCase();
+    if(studant == "s" || studant == "n") {
+        break;
+    } else {
+        console.log("Digite 's' ou 'n'");
+    };
+};
 
 function singUp() { // Criar Conta
         while(true) {
@@ -75,7 +83,7 @@ function main() { // Menu Principal
 
 }
 
-function mainLitle() { // Menu Principal menor de idade
+function mainLitle() { // Menu Principal para estudante
     let first = Number(prompt(`
         =====================
         Olá ${nike}! Seu cash é: ${cash}
@@ -125,7 +133,7 @@ function rent() { // Menu de Alugar
 
 }
 
-function rentLitle() { // Menu de Alugar menor de idade
+function rentLitle() { // Menu de Alugar para estudante
     let first = Number(prompt(`
         =====================
         Ola ${nike}! Seu cash é: ${cash}
@@ -183,7 +191,7 @@ function rentBike() { // Menu de alugar Bicicletas
     };
 }
 
-function rentBikeLitle() { // Menu de alugar Bicicletas menor de idade
+function rentBikeLitle() { // Menu de alugar Bicicletas para estudante
     console.log(`
         Os Modelos de Bikes são:
         1 - Simple bike - 10/h
@@ -224,9 +232,9 @@ function rentBikeLitle() { // Menu de alugar Bicicletas menor de idade
 function rentScoo() { // Menu de alugar Patinetes
     console.log(`
         Os modelos de patinete são:
-        1 - Patinete simples - 5/h
-        2 - Patinete avançado - 15/h
-        3 - Patinete profissional - 20/h
+        1 - Patinete simples - 20/h
+        2 - Patinete avançado - 40/h
+        3 - Patinete profissional - 50/h
 
         0 - Voltar
 
@@ -235,11 +243,11 @@ function rentScoo() { // Menu de alugar Patinetes
     let time = Number(prompt('Adicione o tempo que deseja: '));
     let value = 0;
     if (scooter == 1) {
-        value = 5;
-    } else if(scooter == 2) {
-        value = 15;
-    } else if(scooter == 3) {
         value = 20;
+    } else if(scooter == 2) {
+        value = 40;
+    } else if(scooter == 3) {
+        value = 50;
     } else if (scooter == 0) {
         main();
     };
@@ -259,12 +267,12 @@ function rentScoo() { // Menu de alugar Patinetes
     }
 }
 
-function rentScooLitle() { // Menu de alugar Patinetes menor de idade
+function rentScooLitle() { // Menu de alugar Patinetes para estudante
     console.log(`
         Os modelos de patinete são:
-        1 - Patinete simples - 3/h
-        2 - Patinete avançado - 7/h
-        3 - Patinete profissional - 10/h
+        1 - Patinete simples - 10/h
+        2 - Patinete avançado - 20/h
+        3 - Patinete profissional - 25/h
 
         0 - Voltar
 
@@ -273,11 +281,11 @@ function rentScooLitle() { // Menu de alugar Patinetes menor de idade
     let time = Number(prompt('Adicione o tempo que deseja: '));
     let value = 0;
     if (scooter == 1) {
-        value = 3;
-    } else if(scooter == 2) {
-        value = 7;
-    } else if(scooter == 3) {
         value = 10;
+    } else if(scooter == 2) {
+        value = 20;
+    } else if(scooter == 3) {
+        value = 25;
     } else if (scooter == 0) {
         mainLitle();
     };
@@ -331,12 +339,12 @@ function toRemove() { // Menu para remover Dinheiro
 
 singUp()
 while(i < 1) { // Loop principal
-    if (idade < 18) {
+    if (studant == 's') {
         mainLitle();
     } else {
         main();
-    }
-}
+    };
+};
 
 console.log(`
     =====================
